@@ -26,9 +26,9 @@
 
           <li class="dropdown"><a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown"> Project<b class="caret "></b></a>
             <ul class="dropdown-menu" role="menu " href="#drop2 ">
-              <li role="presentation"><a role="menuitem " tabindex="-1" href="project/prjIndex.html">New Project</a>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="project/prjIndex.html">New Project</a>
               </li>
-              <li role="presentation"><a role="menuitem" tabindex="-1">Open Project</a>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Open Project</a>
               </li>
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">add contents</a>
               </li>
@@ -62,22 +62,21 @@
                 <div class="modal-body">
                   <form role="form">
                     <div class="form-group form-horizontal">
-                      <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
+                      <label for="md_lb_Email1" class="col-lg-2 control-label">Email</label>
                       <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
                     </div>
                     <div class="form-group form-horizontal">
-                      <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
+                      <label for="md_lb_Password1" class="col-lg-2 control-label">Password</label>
                       <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="checkbox">
-                        <label>
-                          <input type="checkbox">Remember me</label>
+                        <label><input type="checkbox">Remember me</label>
                       </div>
                     </div>
                     <div class="form-group">
                       <!--{call .signup/} Sign up-->
-                      <a href="#">Sign up</a>
+                      <a href="signup.html">Sign up</a>
                     </div>
                   </form>
                 </div>
@@ -100,24 +99,16 @@
  * SignUp view
  */
 {template .signup}
- <div class="container">
-    <form role="form">
-      <h2 class="form-signin-heading">Please sign up :^)</h2>
-      <div class="form-group form-horizontal">
-        <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
-        <input type="email" class="form-control" id="signupEmail1" placeholder="Email">
-      </div>
-      <div class="form-group form-horizontal">
-        <label for="inputEmail1" class="col-lg-2 control-label">Name</label>
-        <input type="text" class="form-control" id="signupName1" placeholder="Name">
-      </div>
-      <div class="form-group form-horizontal">
-        <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
-        <input type="password" class="form-control" id="signupPassword1" placeholder="Password">
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-    </form>
-  </div>
+<div class="container">
+      <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign up :^)</h2>
+        <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="text" class="form-control" placeholder="Name" required="" autofocus="">
+        <input type="password" class="form-control" placeholder="Password" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      </form>
+</div>
+
 {/template}
 /**
  * cakepage block page secondHeader template

@@ -1,28 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
+<html>
 <head>
-
+  <title>Cake view</title>  
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <link href="https://fonts.googleapis.com/css?family=Limelight|Flamenco|Federo|Yesteryear|Josefin Sans|Spinnaker|Sansita One|Handlee|Droid Sans|Oswald:400,300,700" media="screen" rel="stylesheet" type="text/css" />
-  <link href="../stylesheets/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="../stylesheets/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="../stylesheets/common.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="../stylesheets/fontawesome.css" media="screen" rel="stylesheet" type="text/css" />
-
-  <link href="../stylesheets/view.css" media="screen" rel="stylesheet" type="text/css" />
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript" src="soyutils.js"></script>
-  <!-- template file을 쓰기 위함이다 -->
-  <script type="text/javascript" src="../cakeView.js"></script>
-  
-  <!-- 아래 두 JS링크는 dropdown실행을 위한 링크이므로 삭제하면 안됩니다.물논 위에것들-->
-  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/latest/js/bootstrap.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="../js/soyutils.js"></script>
+  <script type="text/javascript" src="../js/cakeView.js"></script>
 </head>
-
 <body>
   <script>
     // header file in ../cakeView.js
@@ -34,5 +19,11 @@
     // block조작하는 page View  ../cakeView.js
     document.write(cakepage.blockpageView());
   </script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<!--Exception in thread "main" com.google.template.soy.base.SoySyntaxException: In file template.soy:2, template cakepage.start: Missing SoyDoc for template: {template .start} (required in Soy V2)-->
