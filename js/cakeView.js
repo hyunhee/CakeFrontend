@@ -20,5 +20,5 @@ cakepage.secondHeader = function(opt_data, opt_ignored) {
 
 
 cakepage.blockpageView = function(opt_data, opt_ignored) {
-  return '<div><nav class="navbar navbar-default col-lg-3" role="navigation"><div><ul class="nav nav-pills nav-stacked"><li class="active"><a href="#">Pre</a></li><li><a href="#">Main</a></li><li><a href="#">sub</a></li></ul></div></nav><div class="col-lg-8"><label> blockkk.. </label></div></div>';
+  return '<div class="row"><nav class="navbar navbar-default col-xs-12 col-sm-6 col-md-3" role="navigation"><div><ul class="nav nav-pills nav-stacked"><li class="active"><a href="#">Pre</a></li><li><a href="#">Main</a></li><li><a href="#">sub</a></li></ul></div></nav><div class="col-xs-12 col-sm-6 col-md-9"><label> blockkk.. </label></div></div>';
 };
