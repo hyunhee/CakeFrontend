@@ -16,7 +16,6 @@
     </button>
     <a class="navbar-brand" href="#">Cake</a>
   </div>
- 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
@@ -74,7 +73,7 @@
                     </div>
                     <div class="form-group">
                       <!--{call .signup/} Sign up-->
-                      <a href="signup.html">Sign up</a>
+                      <a href="../signup.html">Sign up</a>
                     </div>
                   </form>
                 </div>
@@ -105,7 +104,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
       </form>
 </div>
-
 {/template}
 /**
  * cakepage block page secondHeader template
@@ -113,7 +111,7 @@
  * project/prjIndex.html에서 호출
  */
 {template .secondHeader}
-<nav class="navbar navbar-default" role="navigation">
+ <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -151,26 +149,30 @@
  * project/prjIndex.html에서 호출 
  */
 {template .blockpageView}
-<nav class="navbar navbar-default" role="navigation">
-  <div>
-    <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="#">Pre</a></li>
-      <li><a href="#">Main</a></li>
-      <li><a href="#">sub</a></li>
-    </ul>
-  </div>
-</nav>
-<div>
-  <label> blockkk.. </label>
-</div>
+ <div class="row">
+  <nav class="navbar navbar-default col-xs-12 col-sm-6 col-md-2" role="navigation">
+    <div>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Pre</a></li>
+        <li><a href="#">Main</a></li>
+        <li><a href="#">sub</a></li>
+      </ul>
+    </div>
+  </nav>
 
-/*
-  <div id="main-container">
+  <div class="col-xs-12 col-sm-6 col-md-10">
+    <label> blockkk.. </label>
+  </div>
+
+</div>
+  /*
+</div>
+ <div id="main-container">
     <div class="panel-group">
       <div class="panel-heading1">
         <div class="panel-function">
           <ul class=" nav nav-tabs nav-stacked">
-            <li><a href="#">Pre</a>
+            <li><a href="#">Prde</a>
             </li>
             <li><a href="#">main</a>
             </li>
@@ -192,6 +194,183 @@
         </div>
       </div>
     </div>
-  </div>
-  */
+  </div>*/
+{/template}
+/**
+ * toolbox
+ *
+ */
+{template .toolNavBox}
+ <xml id="toolbox" style="display: none">
+    <category name="{msg meaning="Apps.catLogic" desc="IBID"}Logic{/msg}">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <category name="{msg meaning="Apps.catLoops" desc="IBID"}Loops{/msg}">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category name="{msg meaning="Apps.catMath" desc="IBID"}Math{/msg}">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_change">
+        <value name="DELTA">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain">
+        <value name="LOW">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="HIGH">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+    </category>
+    <category name="{msg meaning="Apps.catText" desc="IBID"}Text{/msg}">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append">
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
+      <block type="text_length"></block>
+      <block type="text_isEmpty"></block>
+      <block type="text_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.textVariable" desc="IBID"}text{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_charAt">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.textVariable" desc="IBID"}text{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_getSubstring">
+        <value name="STRING">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.textVariable" desc="IBID"}text{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_changeCase"></block>
+      <block type="text_trim"></block>
+      <block type="text_print"></block>
+      <block type="text_prompt_ext">
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
+    </category>
+    <category name="{msg meaning="Apps.catLists" desc="IBID"}Lists{/msg}">
+      <block type="lists_create_empty"></block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getIndex">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+    </category>
+    <category name="{msg meaning="Apps.catColour" desc="IBID"}Colour{/msg}">
+      <block type="colour_picker"></block>
+      <block type="colour_random"></block>
+      <block type="colour_rgb"></block>
+      <block type="colour_blend"></block>
+    </category>
+    <category name="{msg meaning="Apps.catVariables" desc="IBID"}Variables{/msg}" custom="VARIABLE"></category>
+    <category name="{msg meaning="Apps.catProcedures" desc="IBID"}Functions{/msg}" custom="PROCEDURE"></category>
+  </xml>
 {/template}
