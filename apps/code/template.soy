@@ -1,3 +1,4 @@
+<!-- CakeView/apps/code/template.soy-->
 {namespace codepage}
 
 /**
@@ -60,6 +61,77 @@
  * Web page structure.
  */
 {template .start}
+  {call .messages /}
+  <script type="text/javascript" src="../../blockly_uncompressed.js"></script>
+  <script type="text/javascript" src="../../javascript_compressed.js"></script>
+  <script type="text/javascript" src="../../python_compressed.js"></script>
+  <script type="text/javascript" src="../../dart_compressed.js"></script>
+  <script type="text/javascript" src="../../cake_compressed.js"></script>
+  <script type="text/javascript" src="../../{$ij.langSrc}"></script>
+  {call .debug /}
+  <table width="100%" height="100%">
+    <tr>
+      <td>
+        <h1>
+          <span id="title">
+            <a href="../index.html?lang={$ij.lang}">{msg meaning="Apps.blocklyMessage" desc="IBID"}Cake{/msg}</a>
+            {sp}:{sp}
+            {{msg meaning="Code.title" desc="title - Title of this application, indicating that it is for writing arbitrary programs.\n{lb}{lb}Identical|Code{rb}{rb}"}}
+              C language
+            {{/msg}}
+          </span>
+        </h1>
+      </td>
+      <td class="farSide">
+        <select id="languageMenu"></select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <table width="100%">
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks" class="tabon">{{msg meaning="Code.blocks" desc="tab text - Displays and allows editing of the user's program as blocks.\n{lb}{lb}Identical|Blocks{rb}{rb}"}}Blocks{{/msg}}</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_javascript" class="taboff">JavaScript</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_python" class="taboff">Python</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_dart" class="taboff">Dart</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_xml" class="taboff">XML</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_cake" class="taboff">C</td>
+            <td class="tabmax">
+              <button id="trashButton" class="notext" title="{msg meaning="Code.trashTooltip" desc="tooltip - Clicking on this causes the user program to be discarded."}Discard all blocks.{/msg}">
+                <img src='../../media/1x1.gif' class="trash icon21">
+              </button>{sp}
+              <button id="linkButton" class="notext" title="{msg meaning="Apps.linkTooltip" desc="IBID."}Save and link to blocks.{/msg}">
+                <img src='../../media/1x1.gif' class="link icon21">
+              </button>{sp}
+              <button id="runButton" class="notext primary" title="{msg meaning="Apps.runTooltip" desc="IBID"}Run the program defined by the blocks in the workspace.{/msg}">
+                <img src='../../media/1x1.gif' class="run icon21">
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="99%" colspan=2 id="content_area">
+        {call .toolbox /}
+      </td>
+    </tr>
+  </table>
+  <div id="content_blocks" class="content"></div>
+  <pre id="content_javascript" class="content"></pre>
+  <pre id="content_python" class="content"></pre>
+  <pre id="content_dart" class="content"></pre>
+  <textarea id="content_xml" class="content" wrap="off"></textarea>
+  <pre id="content_cake" class="content"></pre>
+  {call apps.dialog /}
+  {call apps.storageDialog /}
+{/template}
+/*{template .start}
   {call .messages /}
   <script type="text/javascript" src="../../blockly_uncompressed.js"></script>
   <script type="text/javascript" src="../../javascript_compressed.js"></script>
@@ -128,7 +200,7 @@
   <pre id="content_cake" class="content"></pre>
   {call apps.dialog /}
   {call apps.storageDialog /}
-{/template}
+{/template}*/
 
 /**
  * New toolbox.
