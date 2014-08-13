@@ -95,7 +95,7 @@
  * SignUp view
  */
 {template .signup}
-<div class="container">
+  <div class="container">
       <form class="form-signin" role="form">
         <h2 class="form-signin-heading">Please sign up :^)</h2>
         <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -103,7 +103,7 @@
         <input type="password" class="form-control" placeholder="Password" required="">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
       </form>
-</div>
+  </div>
 {/template}
 /**
  * cakepage block page secondHeader template
@@ -141,7 +141,7 @@
         </ul>
       </li>
   </div><!-- /.navbar-collapse -->
-</nav>
+ </nav>
 {/template}
 /**
  * cake block page view
@@ -161,10 +161,11 @@
   </nav>
 
   <div class="col-xs-12 col-sm-6 col-md-10">
-    <label> blockkk.. </label>
+    <label> blockkk</label>
   </div>
+ </div>
+{/template}
 
-</div>
   /*
 </div>
  <div id="main-container">
@@ -195,12 +196,11 @@
       </div>
     </div>
   </div>*/
-{/template}
 /**
  * toolbox
  *
  */
-{template .toolNavBox}
+{template .toolbox}
  <xml id="toolbox" style="display: none">
     <category name="{msg meaning="Apps.catLogic" desc="IBID"}Logic{/msg}">
       <block type="controls_if"></block>

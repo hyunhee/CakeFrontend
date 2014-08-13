@@ -7,9 +7,16 @@
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <script type="text/javascript" src="../js/soyutils.js"></script>
   <script type="text/javascript" src="../js/cakeView.js"></script>
+  <link rel="stylesheet" type="text/css" href="../common.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="../common.js"></script>
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="/storage.js"></script>
 </head>
 <body>
   <script>
+    //
+    // document.write(cakepage.start());
     // header file in ../cakeView.js
     document.write(cakepage.header());
 
@@ -21,7 +28,11 @@
 
     //toolNaVBox ../cakeView.js
     document.write(cakepage.toolNavBox());
-    
+
+    document.write(codepage.start({}, null,
+        {lang: BlocklyApps.LANG,
+         langSrc: BlocklyApps.languagePack()}));
+
   </script>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
