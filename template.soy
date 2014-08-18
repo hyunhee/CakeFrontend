@@ -5,32 +5,30 @@
  * index.html에서 호출
  */
 {template .header}
-<div class="header">
-   <nav class="navbar navbar-default" role="navigation" style="background-color: #ffffff; margin-bottom: 5px;">
-    <!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar navbar-default" style="background-color: #ffffff; margin-bottom: 5px;">
+  <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="index.html">Cake</a>
     </div>
-   
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">About Cake</a></li>
             <li><a href="#">Developer</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
             <li><a href="#">add contents</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="prjIndex.html">New Project</a></li>
             <li><a href="#">Open Project</a></li>
@@ -38,7 +36,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Etc<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Etc <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Donation</a></li>
             <li><a href="#">Help</a></li>
@@ -46,7 +44,7 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
         <!-- Modal -->
         <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-dialog"> // style="max-width: 350px;">
@@ -87,8 +85,8 @@
         <!-- /.modal -->      
         <button class="btn btn-primary" data-toggle="modal" data-target="#loginModal" style="margin-top: 8px;">LogIn</button>
       </ul>
-    </div><!-- /.navbar-collapse -->
-   </nav>
+    </div><!--/.nav-collapse -->
+  </div>
 </div>
 {/template}
 /**
@@ -116,6 +114,7 @@
 {template .secondHeader}
 <nav class="navbar navbar-default" role="navigation" style="background-color: #ffffff; margin-bottom: 5px;">
   <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -144,6 +143,7 @@
         </ul>
       </li>
   </div><!-- /.navbar-collapse -->
+  </div>
 </nav>
 {/template}
 /**
@@ -152,45 +152,45 @@
  * project/prjIndex.html에서 호출 
  */
 {template .blockpageView}
-<div>
-  <div class="col-xs-12 col-sm-3 col-md-2">
-    <div style="padding-top: 10px; padding-bottom: 10px; border-radius: 4px;">
-      <div style="background-color: #FFFFFF; border: 1px solid #e7e7e7; border-radius: 5px;">
-        <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a href="#">Pre</a></li>
-          <li><a href="#">Main</a></li>
-          <accordion>
-            <div class="panel panel-default ng-isolate-scope" heading="Functions" is-open="true" style="margin: 1px">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle ng-binding" ng-click="isOpen = !isOpen" accordion-transclude="heading">sub functions</a>
-              </h4>
-            </div>
-            <div class="panel-collapse collapse in" collapse="!isOpen" style="height: auto">
-              <div class="panel-body" ng-transclude>
-                <div class="list-group ng-scope" adjustheight="325">
-                  <a class="list-group-item">sub1</a>
-                  <a class="list-group-item">sub2</a>
-                  <!-- ngRepeat: k in pages.keys().sort() -->
-                  //<a class="list-group-item active" ng-repeat="k in pages.keys().sort()" ng-click="setActivePage(k);" ng-style="{ 'font-weight': (k === 'init' || k === 'main' ? 'bold' : 'normal')}" style="font-weight: bold;">init</a>
-                  <!-- end ngRepeat: k in pages.keys().sort() -->
-                  //<a class="list-group-item" ng-repeat="k in pages.keys().sort()" ng-click="setActivePage(k);" ng-style="{ 'font-weight': (k === 'init' || k === 'main' ? 'bold' : 'normal')}" style="font-weight: bold;">main</a>
-                  <!-- end ngRepeat: k in pages.keys().sort() -->
-                </div>
-                <center><div class="btn-group btn-group-sm ng-scope">
-                  <button type="button" class="btn btn-default" ng-click="newPage()"><span class="glyphicon glyphicon-plus"></span></button>
-                  <button type="button" class="btn btn-default" ng-click="deletePage(currentPageName)"><span class="glyphicon glyphicon-minus"></span></button>
-                </div></center>
+<div class="container">
+  <div class="col-xs-3">
+    <div style="background-color: #FFFFFF; border: 1px solid #e7e7e7; border-radius: 5px;">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Pre</a></li>
+        <li><a href="#">Main</a></li>
+        <accordion>
+          <div class="panel panel-default ng-isolate-scope" heading="Functions" is-open="true" style="margin: 1px">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle ng-binding" ng-click="isOpen = !isOpen" accordion-transclude="heading">sub functions</a>
+            </h4>
+          </div>
+          <div class="panel-collapse collapse in" collapse="!isOpen" style="height: auto">
+            <div class="panel-body" ng-transclude>
+              <div class="list-group ng-scope" adjustheight="325">
+                <a class="list-group-item">sub1</a>
+                <a class="list-group-item">sub2</a>
+                <!-- ngRepeat: k in pages.keys().sort() -->
+                //<a class="list-group-item active" ng-repeat="k in pages.keys().sort()" ng-click="setActivePage(k);" ng-style="{ 'font-weight': (k === 'init' || k === 'main' ? 'bold' : 'normal')}" style="font-weight: bold;">init</a>
+                <!-- end ngRepeat: k in pages.keys().sort() -->
+                //<a class="list-group-item" ng-repeat="k in pages.keys().sort()" ng-click="setActivePage(k);" ng-style="{ 'font-weight': (k === 'init' || k === 'main' ? 'bold' : 'normal')}" style="font-weight: bold;">main</a>
+                <!-- end ngRepeat: k in pages.keys().sort() -->
               </div>
+              <center><div class="btn-group btn-group-sm ng-scope">
+                <button type="button" class="btn btn-default" ng-click="newPage()"><span class="glyphicon glyphicon-plus"></span></button>
+                <button type="button" class="btn btn-default" ng-click="deletePage(currentPageName)"><span class="glyphicon glyphicon-minus"></span></button>
+              </div></center>
             </div>
           </div>
-          </accordion>
-        </ul>
-      </div>
+        </div>
+        </accordion>
+      </ul>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-10">
-    <label> blockkk.. </label>
+  <div class="col-xs-9">
+    <div style="background-color: #A9CFFF">
+      <label> blockkk.. </label>
+    </div>
   </div>
 </div>
 {/template}
