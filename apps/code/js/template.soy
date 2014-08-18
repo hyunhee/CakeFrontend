@@ -1,4 +1,4 @@
-<!--CakeView/apps/code/js/template.soy-->
+<!--Cake/apps/code/js/template.soy-->
 /**
  * cd Cakeblock/apps/code/js
  * java -jar SoyToJsSrcCompiler.jar --outputPathFormat cakeView.js --srcs template.soy
@@ -199,12 +199,13 @@
  */
 {template .blockpageView}
   {call .messages /}
-  <script type="text/javascript" src="../../../blockly_uncompressed.js"></script>
-  <script type="text/javascript" src="../../../javascript_compressed.js"></script>
-  <script type="text/javascript" src="../../../python_compressed.js"></script>
-  <script type="text/javascript" src="../../../dart_compressed.js"></script>
-  <script type="text/javascript" src="../../../cake_compressed.js"></script>
+  <script type="text/javascript" src="../../blockly_uncompressed.js"></script>
+  <script type="text/javascript" src="../../javascript_compressed.js"></script>
+  <script type="text/javascript" src="../../python_compressed.js"></script>
+  <script type="text/javascript" src="../../dart_compressed.js"></script>
+  <script type="text/javascript" src="../../cake_compressed.js"></script>
   {call .debug /}
+
   <div class="row">
     <nav class="navbar navbar-default col-xs-12 col-sm-6 col-md-2" role="navigation">
      <div>
@@ -216,180 +217,217 @@
      </div>
     </nav>
     <div class="col-xs-12 col-sm-6 col-md-10">
-      <tr>
-      <td colspan=2>
-        <table width="100%">
-          <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon">{{msg meaning="Code.blocks" desc="tab text - Displays and allows editing of the user's program as blocks.\n{lb}{lb}Identical|Blocks{rb}{rb}"}}Blocks{{/msg}}</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_javascript" class="taboff">JavaScript</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_python" class="taboff">Python</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_dart" class="taboff">Dart</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_xml" class="taboff">XML</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_cake" class="taboff">C</td>
-            <td class="tabmax">
-              <button id="trashButton" class="notext" title="{msg meaning="Code.trashTooltip" desc="tooltip - Clicking on this causes the user program to be discarded."}Discard all blocks.{/msg}">
-                <img src='../../../media/1x1.gif' class="trash icon21">
-              </button>{sp}
-              <button id="linkButton" class="notext" title="{msg meaning="Apps.linkTooltip" desc="IBID."}Save and link to blocks.{/msg}">
-                <img src='../../../media/1x1.gif' class="link icon21">
-              </button>{sp}
-              <button id="runButton" class="notext primary" title="{msg meaning="Apps.runTooltip" desc="IBID"}Run the program defined by the blocks in the workspace.{/msg}">
-                <img src='../../../media/1x1.gif' class="run icon21">
-              </button>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td height="99%" colspan=2 id="content_area">
-        {call .toolbox /}
-      </td>
-    </tr>
-  </table>
-  <div id="content_blocks" class="content"></div>
-  <pre id="content_javascript" class="content"></pre>
-  <pre id="content_python" class="content"></pre>
-  <pre id="content_dart" class="content"></pre>
-  <textarea id="content_xml" class="content" wrap="off"></textarea>
-  <pre id="content_cake" class="content"></pre>
-  <!--{call apps.dialog /}
-  {call apps.storageDialog /}-->
-
+      
       <label> blockkk</label>
     </div>
-
   </div>
 {/template}
+
 /**
- * New toolbox.
+</div>
+ <div id="main-container">
+    <div class="panel-group">
+      <div class="panel-heading1">
+        <div class="panel-function">
+          <ul class=" nav nav-tabs nav-stacked">
+            <li><a href="#">Prde</a>
+            </li>
+            <li><a href="#">main</a>
+            </li>
+            <li><a href="#">sub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel-heading2">
+        <div class="panel-log"></div>
+      </div>
+    </div>
+    <div id="cake-frame" class="" adjustheight="160" ng-show="editorMode==='graphical'" dir="LTR" style="max-height:247px">
+      <div class="cakeToolboxDiv" dir="LTR" style="display: block; height: 248px;">
+        <div class="cakeToolRow" style="paddingp-left:0px">
+          <span></span>
+          <span class="cakeToolLabel" id="1.label">Variables</span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </div>*/
+/**
+ * toolbox
+ *
  **/
 {template .toolbox}
-  <xml id="toolbox" style="display: none">
-    <category name="{msg meaning="Apps.catVariables" desc="IBID"}Variables{/msg}" custom="VARIABLE">
+ <xml id="toolbox" style="display: none">
+    <category name="{msg meaning="Apps.catLogic" desc="IBID"}Logic{/msg}">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
     </category>
     <category name="{msg meaning="Apps.catLoops" desc="IBID"}Loops{/msg}">
-      <block type="loop_while"></block>
-      <block type="loop_dowhile"></block>
-      <block type="loop_for"></block>
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
     </category>
-    <category name="{msg meaning="Apps.catLogic" desc="IBID"}Logic{/msg}">
-      <block type="logic_ifelse"></block>
-      <block type="logic_switch"></block>
-    </category><category name="Function">
-      <block type="logic_ifelse"></block>
-      <block type="logic_switch"></block>
+    <category name="{msg meaning="Apps.catMath" desc="IBID"}Math{/msg}">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_change">
+        <value name="DELTA">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain">
+        <value name="LOW">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="HIGH">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
     </category>
-    <category name="{msg meaning="Apps.catLibrary" desc="IBID"}Library{/msg}">
-      <category name="Stdio">
-        <category name="FILE I/O">
-          <block type="library_stdio_fopen">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
+    <category name="{msg meaning="Apps.catText" desc="IBID"}Text{/msg}">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append">
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
+      <block type="text_length"></block>
+      <block type="text_isEmpty"></block>
+      <block type="text_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.textVariable" desc="IBID"}text{/msg}</field>
           </block>
-          <block type="library_stdio_fclose">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
+        </value>
+      </block>
+      <block type="text_charAt">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.textVariable" desc="IBID"}text{/msg}</field>
           </block>
-          <block type="library_stdio_fprintf">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
+        </value>
+      </block>
+      <block type="text_getSubstring">
+        <value name="STRING">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.textVariable" desc="IBID"}text{/msg}</field>
           </block>
-          <block type="library_stdio_fscanf">
-            <value name="TEXT">
-            <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_fread">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_fwrite">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_fflush">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          </category>
-          <category name="I/O">
-          <block type="library_stdio_printf">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_scanf">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_getchar">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_putchar">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_gets">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-          <block type="library_stdio_puts">
-            <value name="TEXT">
-              <block type="library_func_paren"></block>
-            </value>
-          </block>
-        </category>
-      </category>
-      <category name="Stdlib">
-        <block type="library_stdlib_rand">
-          <value name="TEXT">
-            <block type="library_func_paren"></block>
-          </value>
-        </block>
-        <block type="library_stdlib_srand">
-          <value name="TEXT">
-            <block type="library_func_paren"></block>
-          </value>
-        </block>
-        <block type="library_stdlib_malloc">
-          <value name="TEXT">
-            <block type="library_func_paren"></block>
-          </value>
-        </block>
-        <block type="library_stdlib_free">
-          <value name="TEXT">
-            <block type="library_func_paren"></block>
-          </value>
-        </block>
-        <block type="library_stdlib_exit">
-          <value name="TEXT">
-            <block type="library_func_paren"></block>
-          </value>
-        </block>
-      </category>
-      <category name="{msg meaning="Apps.catMath" desc="IBID"}Math{/msg}">
-        <block type="library_func_paren"></block>
-        <block type="library_math_sin"></block>
-        <block type="library_math_cos"></block>
-        <block type="library_math_tan"></block>
-      </category>
+        </value>
+      </block>
+      <block type="text_changeCase"></block>
+      <block type="text_trim"></block>
+      <block type="text_print"></block>
+      <block type="text_prompt_ext">
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
     </category>
+    <category name="{msg meaning="Apps.catLists" desc="IBID"}Lists{/msg}">
+      <block type="lists_create_empty"></block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getIndex">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{msg meaning="Apps.listVariable" desc="IBID"}list{/msg}</field>
+          </block>
+        </value>
+      </block>
+    </category>
+    <category name="{msg meaning="Apps.catColour" desc="IBID"}Colour{/msg}">
+      <block type="colour_picker"></block>
+      <block type="colour_random"></block>
+      <block type="colour_rgb"></block>
+      <block type="colour_blend"></block>
+    </category>
+    <category name="{msg meaning="Apps.catVariables" desc="IBID"}Variables{/msg}" custom="VARIABLE"></category>
+    <category name="{msg meaning="Apps.catProcedures" desc="IBID"}Functions{/msg}" custom="PROCEDURE"></category>
   </xml>
 {/template}
